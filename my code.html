@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohan Singh - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .project-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .badge-custom {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mohan Singh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-md-start text-center">
+                    <h1 class="display-4 fw-bold mb-3">Hi, I'm Mohan Singh</h1>
+                    <p class="lead mb-4">B.Tech Computer Science student at Lovely Professional University specializing in software testing.</p>
+                    <div class="d-flex justify-content-md-start justify-content-center mb-4">
+                        <a href="#contact" class="btn btn-light btn-lg me-3">Contact Me</a>
+                        <a href="file:///C:/Users/mohan/Downloads/MohanSingh_CV.pdf" target="_blank" class="btn btn-outline-light btn-lg">Download CV</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/mohan-singh" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/mohansingh" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:mohan24092003@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+919027448512" class="social-icon"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center mt-md-0 mt-4">
+                    <img src="C:\Users\mohan\Downloads\myimage.png" alt="Mohan Singh" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="row g-4">
+                <!-- Programming Languages -->
+                <div class="col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5>Programming Languages</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i> Python </li>
+                            <li><i class="fas fa-check text-success me-2"></i> Java</li>
+                            <li><i class="fas fa-check text-success me-2"></i> C++</li>
+                            <li><i class="fas fa-check text-success me-2"></i> HTML & Css</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Frontend Development -->
+                <div class="col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h5>Soft Skills</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i> Adaptability</li>
+                            <li><i class="fas fa-check text-success me-2"></i> good communication skill</li>
+                            <li><i class="fas fa-check text-success me-2"></i> good listner</li>
+                            <li><i class="fas fa-check text-success me-2"></i> consistency</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Backend Development
+                <div class="col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h5>Backend Development</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i> Node.js (Advanced)</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Express.js (Intermediate)</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Django</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Flask</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                 Databases & Cloud 
+                <div class="col-md-3">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h5>Databases & Cloud</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i> MySQL (Intermediate)</li>
+                            <li><i class="fas fa-check text-success me-2"></i> MongoDB</li>
+                            <li><i class="fas fa-check text-success me-2"></i> AWS (Intermediate)</li>
+                            <li><i class="fas fa-check text-success me-2"></i> Docker (Intermediate)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Projects Section -->
+    <section class="py-5 bg-light" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-lg-6">
+                    <div class="project-card card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="https://static.vecteezy.com/system/resources/previews/002/549/503/non_2x/schedule-blood-donation-through-webpage-free-vector.jpg" class="img-fluid rounded-start project-img" alt="Payben Project">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Blood Donation web page</h5>
+                                    <p class="card-text">This blood donation webpage provides key information on who can donate, the donation process, benefits, and how to find nearby centers, encouraging everyone to help save lives through blood donation.</p>
+                                    <div class="mb-2">
+                                        <span class="badge badge-custom">HTML</span>
+                                        <span class="badge badge-custom">CSS</span>
+                                        <!-- <span class="badge badge-custom">JavaScript</span> -->
+                                        <!-- <span class="badge badge-custom">Bootstrap</span> -->
+                                        <!-- <span class="badge badge-custom">MySQL</span> -->
+                                        <!-- <span class="badge badge-custom">PHP</span> -->
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-primary-custom">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-6">
+                    <div class="project-card card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=815&q=80" class="img-fluid rounded-start project-img" alt="E-commerce website testing">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">E-commerce website testing</h5>
+                                    <p class="card-text">Website testing ensures that all features of a website work correctly, especially in areas like forms, cart, and payment in e-commerce, improving user experience and reducing chances of critical errors.</p>
+                                    <div class="mb-2">
+                                        <span class="badge badge-custom">Selenium</span>
+                                        <span class="badge badge-custom">Postman</span>
+                                        <span class="badge badge-custom">JMeter</span>
+                                        <!-- <span class="badge badge-custom">SSL</span> -->
+                                        <!-- <span class="badge badge-custom">CNAME</span> -->
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-primary-custom">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-5" id="Achievements">
+        <div class="container">
+            <h2 class="section-title">Achievement</h2>
+            
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>Training of DSA</h4>
+                                <h6 class="text-muted">from Geeksforgeeks</h6>
+                                <ul>
+                                    <li>Comprehensive Curriculum: Covers all core DSA topics in Java, including arrays, linked lists, trees, graphs, and dynamic programming, with problem-solving practice.</li>
+                                    <li>Hands-On Learning: Includes coding exercises, quizzes, and real-world problems to build strong algorithmic thinking and Java implementation skills.</li>
+                                </ul>
+                                <!-- <div class="mb-2">
+                                    <span class="badge badge-custom">Redux</span>
+                                    <span class="badge badge-custom">C#</span>
+                                    <span class="badge badge-custom">CodeIgniter</span>
+                                    <span class="badge badge-custom">.NET</span>
+                                    <span class="badge badge-custom">React.js</span>
+                                    <span class="badge badge-custom">PHP</span>
+                                </div> -->
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid rounded" alt="Optmyzr">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>volunteer in old age home</h4>
+                                <h6 class="text-muted">April 2022 - March 2023</h6>
+                                <ul>
+                                    <li>Companionship: Providing emotional support and company to elderly residents.</li>
+                                    <li>Care Assistance: Helping with daily activities like meals, mobility, and medication.</li>
+                                    <li>Engagement: Organizing recreational activities to keep seniors mentally and socially active.</li>
+                                </ul>
+                                <!-- <div class="mb-2">
+                                    <span class="badge badge-custom">Android</span>
+                                    <span class="badge badge-custom">Web Development</span>
+                                    <span class="badge badge-custom">API Integration</span>
+                                </div> -->
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw3uhm7s5xorzs1HEqENi8gQ08HZSUY58_tA&s" class="img-fluid rounded" alt="Payben">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section
+    <section class="py-5 bg-light" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Competitions & Achievements</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Dean's List">
+                        <div class="card-body">
+                            <h5 class="card-title">Dean's Top 10% Students</h5>
+                            <p class="card-text">For good academic performance and extra-curricular activities at University.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Hackathon">
+                        <div class="card-body">
+                            <h5 class="card-title">3rd Rank in HackOverflow 5.0</h5>
+                            <p class="card-text">Participated and ranked 3rd in the Hackathon organized by NIT Durgapur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" class="card-img-top" alt="Appreciation Letter">
+                        <div class="card-body">
+                            <h5 class="card-title">Letter of Appreciation</h5>
+                            <p class="card-text">Received letter of appreciation from Defence Minister of India for exceptional performance in AISSCE.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Certifications Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Certifications & Courses</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" class="card-img-top" alt="Interview Preparation">
+                        <div class="card-body">
+                            <h5 class="card-title">Complete DSA with java</h5>
+                            <p class="card-text">By GeeksforGeeks</p>
+                            <a href="C:\Users\mohan\Downloads\geek for geek.pdf" target="_blank" class="btn btn-sm btn-primary-custom">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8VRmuwZhG40QDxM_IF9klXkzNA96GmX1z2Q&s" class="card-img-top" alt="Flutter Development">
+                        <div class="card-body">
+                            <h5 class="card-title">complete cybre crime on socia media</h5>
+                            <p class="card-text">By Swaym NPTEL</p>
+                            <!-- <a href="#" class="btn btn-sm btn-primary-custom">View Certificate</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Python Bootcamp">
+                        <div class="card-body">
+                            <h5 class="card-title">100 Days of Code: DSA</h5>
+                            <p class="card-text">By Udemy</p>
+                            <a href="C:\Users\mohan\Downloads\udemy.pdf" target="_blank" class="btn btn-sm btn-primary-custom">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Blog & Articles</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Blog Post 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Roadmap of Frontend developer</h5>
+                            <p class="card-text">A comprehensive guide of frontend developer</p>
+                            <a href="file:///C:/Users/mohan/Downloads/blogofFRONTEND.html" class="btn btn-sm btn-primary-custom" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="Blog Post 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Understanding of DSA</h5>
+                            <p class="card-text">Deep dive into DSA and how to use them effectively.</p>
+                            <a href="file:///C:/Users/mohan/Downloads/understandinfOFDSA.html" class="btn btn-sm btn-primary-custom" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80" class="card-img-top" alt="Blog Post 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud Computing Basics</h5>
+                            <p class="card-text">Introduction to cloud computing concepts and AWS services.</p>
+                            <a href="https://mohansingh.hashnode.dev/" class="btn btn-sm btn-primary-custom" target="_blank">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="text-center mt-4">
+                <a href="https://mohansingh.hashnode.dev/" class="btn btn-primary-custom" target="_blank">Visit My Blog</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- YouTube Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">YouTube Channel</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="https://www.youtube.com/@mohansingh" class="btn btn-primary-custom" target="_blank">Visit My Channel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Get in Touch</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                                <li class="mb-3"><i class="fas fa-envelope me-2"></i> mohan.singh@example.com</li>
+                                <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Agra, Uttar Pradesh, India</li>
+                            </ul>
+                            <div class="social-links">
+                                <a href="https://linkedin.com/in/mohan-singh" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/mohansingh" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://twitter.com/mohansingh" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://instagram.com/mohansingh" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Send a Message</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary-custom">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-2">© 2023 Mohan Singh. All rights reserved.</p>
+            <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by Mohan Singh</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
